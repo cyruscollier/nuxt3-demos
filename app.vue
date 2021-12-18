@@ -4,6 +4,5 @@
   </div>
 </template>
 <script setup>
-const config = useRuntimeConfig();
-const test = config.PRIVATE_TEST
+const test = process.env.PRIVATE_TEST
 </script>
