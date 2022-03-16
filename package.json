@@ -6,7 +6,7 @@
     "start": "node .output/server/index.mjs"
   },
   "devDependencies": {
-    "nuxt3": "^3.0.0-27439163.9f506de",
-    "@nuxt/webpack-builder": "npm:@nuxt/webpack-builder-edge@latest"
+    "@nuxt/webpack-builder": "npm:@nuxt/webpack-builder-edge@latest",
+    "nuxt3": "^3.0.0-27439163.9f506de"
   }
 }

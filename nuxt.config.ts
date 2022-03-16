@@ -2,8 +2,10 @@ import { defineNuxtConfig } from 'nuxt3'
 
 export default defineNuxtConfig({
     builder: 'webpack',
-    build: {
-        extractCSS: true,
+    webpack: {
+        extractCSS: {
+            ignoreOrder: true
+        },
     },
     css: ['~/assets/app.css']
 })
