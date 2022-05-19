@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TabGroup>
+    <TabGroup class="mb-4" as="div">
       <TabList class="inline-flex gap-4 border mb-4">
         <Tab v-slot="{ selected }" as="template"><button class="p-4" :class="selected ? 'bg-gray-300' : 'bg-gray-100'">Tab 1</button></Tab>
         <Tab v-slot="{ selected }" as="template"><button class="p-4" :class="selected ? 'bg-gray-300' : 'bg-gray-100'">Tab 2</button></Tab>
@@ -14,11 +14,44 @@
         </TabPanel>
       </TabPanels>
     </TabGroup>
+    <button class="p-4 bg-gray-100" @click="isOpen = true">Open Dialog</button>
+    <Dialog
+        :open="isOpen"
+        class="fixed inset-0 z-50 flex h-full w-full overflow-y-auto py-[10vh]"
+        @close="isOpen = false"
+    >
+      <DialogOverlay class="fixed inset-0 bg-black opacity-50" />
+      <div class="pointer-events-auto relative m-auto flex h-auto flex-col flex-wrap items-center overflow-y-auto rounded-3xl bg-white py-16 px-8 max-w-xl">
+        <div class="m-auto w-full max-w-4xl">
+          This is the content inside the Dialog modal
+        </div>
+        <button
+            class="absolute right-7 top-7 rounded leading-none"
+            aria-label="Close Modal"
+            @click="isOpen = false"
+        >
+          &times;
+        </button>
+      </div>
+    </Dialog>
   </div>
 </template>
-<script>
-import {Tab, TabGroup, TabList, TabPanel, TabPanels} from "@headlessui/vue";
-export default {
-  components: {TabPanel, TabPanels, Tab, TabList, TabGroup}
-}
+<script setup lang="ts">
+import {Dialog, DialogOverlay, Tab, TabGroup, TabList, TabPanel, TabPanels} from "@headlessui/vue"
+
+const isOpen = ref(false)
+
+// generic global interaction tracking example
+onMounted(() => {
+  document.addEventListener('click', (e) => {
+    const el = e.target
+    if (!(el instanceof HTMLElement)) {
+      return
+    }
+    if (el.matches('a, button')) {
+      console.log('Tracked interaction:', el.textContent)
+    }
+  })
+})
+
 </script>
