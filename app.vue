@@ -14,7 +14,7 @@
         </TabPanel>
       </TabPanels>
     </TabGroup>
-    <button class="p-4 bg-gray-100" @click="isOpen = true">Open Dialog</button>
+    <button class="p-4 bg-gray-100 mb-4" @click="isOpen = true">Open Dialog</button>
     <Dialog
         :open="isOpen"
         class="fixed inset-0 z-50 flex h-full w-full overflow-y-auto py-[10vh]"
@@ -34,10 +34,47 @@
         </button>
       </div>
     </Dialog>
+    <Popover class="relative mb-4">
+      <PopoverButton class="p-4 bg-gray-100">Open Popover</PopoverButton>
+      <PopoverPanel class="absolute z-10 bg-white shadow-md p-4">
+        This is the content inside the Popover Panel
+      </PopoverPanel>
+    </Popover>
+    <Menu class="relative mb-4" as="div">
+      <MenuButton class="p-4 bg-gray-100">Open Menu</MenuButton>
+      <MenuItems as="ul" class="absolute z-10 bg-white shadow-md p-4">
+        <MenuItem as="li">
+          <a href="#">
+            Link 1
+          </a>
+        </MenuItem>
+        <MenuItem as="li">
+          <a href="#">
+            Link 2
+          </a>
+        </MenuItem>
+        <MenuItem as="li">
+          <a href="#">
+            Link 3
+          </a>
+        </MenuItem>
+      </MenuItems>
+    </Menu>
   </div>
 </template>
 <script setup lang="ts">
-import {Dialog, DialogOverlay, Tab, TabGroup, TabList, TabPanel, TabPanels} from "@headlessui/vue"
+import {
+  Dialog,
+  DialogOverlay, Menu, MenuButton, MenuItem, MenuItems,
+  Popover,
+  PopoverButton,
+  PopoverPanel,
+  Tab,
+  TabGroup,
+  TabList,
+  TabPanel,
+  TabPanels
+} from "@headlessui/vue"
 
 const isOpen = ref(false)
 
