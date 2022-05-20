@@ -21,7 +21,7 @@
         @close="isOpen = false"
     >
       <DialogOverlay class="fixed inset-0 bg-black opacity-50" />
-      <div class="pointer-events-auto relative m-auto flex h-auto flex-col flex-wrap items-center overflow-y-auto rounded-3xl bg-white py-16 px-8 max-w-xl">
+      <DialogPanel class="pointer-events-auto relative m-auto flex h-auto flex-col flex-wrap items-center overflow-y-auto rounded-3xl bg-white py-16 px-8 max-w-xl">
         <div class="m-auto w-full max-w-4xl">
           This is the content inside the Dialog modal
         </div>
@@ -32,7 +32,7 @@
         >
           &times;
         </button>
-      </div>
+      </DialogPanel>
     </Dialog>
     <Popover class="relative mb-4">
       <PopoverButton class="p-4 bg-gray-100">Open Popover</PopoverButton>
@@ -65,7 +65,7 @@
 <script setup lang="ts">
 import {
   Dialog,
-  DialogOverlay, Menu, MenuButton, MenuItem, MenuItems,
+  DialogOverlay, DialogPanel, Menu, MenuButton, MenuItem, MenuItems,
   Popover,
   PopoverButton,
   PopoverPanel,
