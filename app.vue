@@ -23,7 +23,8 @@
       <DialogOverlay class="fixed inset-0 bg-black opacity-50" />
       <DialogPanel class="pointer-events-auto relative m-auto flex h-auto flex-col flex-wrap items-center overflow-y-auto rounded-3xl bg-white py-16 px-8 max-w-xl">
         <div class="m-auto w-full max-w-4xl">
-          This is the content inside the Dialog modal
+          This is the content inside the Dialog modal.<br>
+          <a href="#" class="underline">This is a link inside the Dialog</a>.
         </div>
         <button
             class="absolute right-7 top-7 rounded leading-none"
@@ -37,7 +38,8 @@
     <Popover class="relative mb-4">
       <PopoverButton class="p-4 bg-gray-100">Open Popover</PopoverButton>
       <PopoverPanel class="absolute z-10 bg-white shadow-md p-4">
-        This is the content inside the Popover Panel
+        This is the content inside the Popover Panel.<br>
+        <a href="#" class="underline">This is a link inside the Popover</a>.
       </PopoverPanel>
     </Popover>
     <Menu class="relative mb-4" as="div">
